@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\ken\\source\\repos\\DA_BookStore\\DA_BookStore\\DA_BookStore.csproj",
+  "TargetFramework": "v4.6.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

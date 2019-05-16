@@ -1,0 +1,100 @@
+body{
+	margin: 0;
+	background-color: #dbdbdb;
+}
+
+/*INFO*/
+input{
+	height: 30px;
+	width: 400px;
+	margin: 10px 5px;
+	text-align: left;
+}
+
+h3{
+	margin: 0;
+	margin-top: 10px;
+	padding: 10px 5px;
+	border-left: 5px solid #ef9c3e;
+	background-color: #224545;
+	color: #fff;
+}
+
+span{
+	color: red;
+}
+
+#ship-info{
+	background-color: #fff;
+	margin: 0;
+}
+#ship-info .row{
+	margin: 0px;
+	height: 50px;
+
+	text-align: left;
+	vertical-align: middle;
+	line-height: 50px;
+}
+
+.label{
+	color: #000;
+	font-size: 100%;
+	padding: 0 1rem;
+
+	text-align: right;
+	vertical-align: middle;
+	line-height: 50px;
+}
+
+/*CART*/
+#cart{
+	background-color: #fff;
+	margin:0;
+}
+#cart .row{
+	margin: 15px 0;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+.bookname{
+	font-size: 150%;
+	font-weight: 700;
+}
+.bookprice{
+	font-size: 120%;
+	font-weight: 700;
+}
+.btn-midle{
+	text-align: center;
+	vertical-align: middle;
+}
+
+/*BILL*/
+hr{
+	margin:0;
+}
+#bill{
+	padding: 0 15px 0 0;
+	position: fixed;
+	right: 0;
+}
+.detail{
+	background-color: #fff;
+	height: 100%;
+}
+.detail .row{
+	vertical-align: middle;
+	line-height: 50px;
+	padding: 0 15px;
+}
+.sub-total{
+	font-size: 85%;
+	color: #96989b;
+}
+.btn-cash{
+	width: 100%;
+	margin-top: 5px;
+}

@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <link href="@Url.Content("~/Content/account.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Quản lý thành viên</title>
+</head>
+
+<body>
+    <section class="main-screen">
+        <div class="home-overlay">
+            <div class="container home-inner">
+                <section class="testimonials wrapper">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Tài khoản <span class="badge">(@ViewBag.slTK)</span></h3>
+                        </div>
+                        <div class="search">
+                            <div class="col-md-6">
+                                <form action="~/Account/AccountManage" method="post">
+                                    <div class="input-group">
+                                        <input type="text" id="id" name="id" class="form-control" placeholder="Tìm kiếm theo tên đăng nhập...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-danger" type="submit">Go!</button>
+                                        </span>
+                                    </div><!-- /input-group -->
+                                </form>
+                            </div><!-- /.col-lg-6 -->
+                        </div>
+                    </div>
+
+                    <ul class="testi_boxs">
+                        <div class="well sidebar-nav">
+                            <ul class="nav">
+                                <div class="row">
+                                    @foreach (var item in ViewBag.DsTK)
+                                    {
+                                        <div class="col-md-4" style="margin-right: 10px;  max-height: 250px; min-height:250px;">
+                                            <li>
+                                                <h2><a href="~/Account/Account?id=@item.TenTaiKhoan&edit=true">@item.TenTaiKhoan</a></h2>
+                                                <p>Họ tên: @item.HoTen</p>
+                                                <p>Email: @item.Email</p>
+                                                <p>Số điện thoại: @item.Sdt</p>
+                                                <p>Giới tính: @((item.GioiTinh) ? "Nam" : "Nữ")</p>
+                                                @foreach (var nv in ViewBag.DsNV)
+                                                {
+                                                    if (nv.TenTaiKhoanNV == item.TenTaiKhoan)
+                                                    {
+                                                        <p>Chức vụ: @nv.ChucVuNV</p>
+                                                        break;
+                                                    }
+                                                }
+                                            </li>
+                                        </div>
+                                    }
+                                </div>
+                            </ul>
+                        </div>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

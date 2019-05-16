@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+          crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+          crossorigin="anonymous" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+          integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ"
+          crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+            crossorigin="anonymous"></script>
+
+    <link href="@Url.Content("~/Content/signup.css")" rel="stylesheet" type="text/css" />
+    <title>Đăng ký</title>
+    <link rel="shortcut icon" href="~/Image/thumb.ico" />
+</head>
+
+<body>
+    <section id="home-section">
+        <div class="home-overlay">
+            <div class="RegBox">
+                <h2 id="reg">Tạo tài khoản</h2>
+                @using (Html.BeginForm("SignUp", "Login", FormMethod.Post))
+                {
+                    <p>Username <i class="fas fa-user"></i></p>
+                    <input type="text" name="id" id="id" placeholder="Nhập username">
+
+                    <p>Mật khẩu <i class="fas fa-key"></i></p>
+                    <input type="password" id="pass" name="pass" placeholder="•••••••••••" value="">
+                    
+
+                    <p>Xác nhận mật khẩu <i class="fas fa-key"></i></p>
+                    <input type="password" id="rePass" name="rePass" placeholder="•••••••••••">
+                    <table>
+                        <tr>
+                            <td id="RePassError" @ViewBag.RePassError></td>
+                        </tr>
+                    </table>
+                    <p>Họ tên <i class="fas fa-signature"></i></p>
+                    <input type="text" id="ten" name="ten" placeholder="Nhập họ tên">
+
+                    <p>Giới tính <i class="fas fa-venus-mars"></i></p>
+                    <select id="sex" name="sex">
+                        <option value="Name">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                    </select>
+
+                    <p>Số điện thoại <i class="fas fa-mobile-alt"></i></p>
+                    <input type="text" name="sdt" id="sdt" placeholder="Nhập số điện thoại">
+
+                    <p>Email <i class="far fa-envelope"></i></p>
+                    <input type="text" id="email" name="email" placeholder="Nhập email">
+
+                    <p>Địa chỉ  <i class="fas fa-map-marked-alt"></i></p>
+                    <input type="text" name="diaChi" id="diaChi" placeholder="Nhập địa chỉ">
+                    <input id="submit" type="submit" value="Đăng kí">
+                }
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="288fab612a1341e28ff6ff1eecdffcd9" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBookStoreModel.CTGIOHANG" Width="1.5" PointX="11.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.CTHDNHAPHANG" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.CTHOADONGIAOHANGNHAP" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.CTHOADONMUAHANG" Width="1.5" PointX="11.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.CTTHELOAI" Width="1.5" PointX="11.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.CTXEMSACH" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.HOADONGIAOHANGNHAP" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.HOADONMUAHANG" Width="1.5" PointX="9" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.HOADONNHAPHANG" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.KHUYENMAI" Width="1.5" PointX="3.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.NHAXUATBAN" Width="1.5" PointX="3.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.QUANGCAO" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.SACH" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.TAIKHOAN" Width="1.5" PointX="1.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBookStoreModel.THELOAI" Width="1.5" PointX="9" PointY="16.5" IsExpanded="true" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTGIOHANG__MaSac__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTGIOHANG__TenTa__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTHDNHAPH__MaHDN__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTHDNHAPH__MaSac__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTHOADONG__MaHDG__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTHOADONG__MaHDN__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTHOADONG__MaSac__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTHOADONM__MaHDM__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTHOADONM__MaSac__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTTHELOAI__MaSac__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTTHELOAI__MaThe__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTXEMSACH__MaSac__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__CTXEMSACH__TenTa__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__HOADONGIA__MaHDN__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__HOADONGIA__TenTa__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__HOADONMUA__TenTa__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__HOADONNHA__MaNha__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__HOADONNHA__TenTa__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__SACH__MaKhuyenMa__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__SACH__MaNhaCungC__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__NHANVIEN__TenTai__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBookStoreModel.FK__SACH__MaNhaXuatB__22AA2996" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,67 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+          crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+          crossorigin="anonymous" />
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+          integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ"
+          crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+            crossorigin="anonymous"></script>
+
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
+    <title>Đăng nhập</title>
+    <link rel="shortcut icon" href="~/Image/thumb.ico" />
+</head>
+
+<body>
+    <section id="home-section">
+        <div class="home-overlay">
+            <div class="LoginBox">
+                <h2 id="login">Đăng nhập</h2>
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                {
+                    <p>Username <i class="fas fa-user"></i></p>
+                    <input type="text" name="id" id="id" placeholder="">
+                    <table>
+                        <tr>
+                            <td id="TenTKError">@ViewBag.TenKHError</td>
+                        </tr>
+                    </table>
+                    <p>Mật khẩu <i class="fas fa-key"></i></p>
+                    <input type="password" name="matKhau" id="matKhau" placeholder="">
+                    <table>
+                        <tr>
+                            <td id="MatKhauError">@ViewBag.MatKhauError</td>
+                        </tr>
+                    </table>
+                    <a href="#">Lost your password ?</a><br>
+                    <a href="~/Login/SignUp">Don't have an account ?</a>
+                    <input id="submit" type="submit" name="" value="Đăng nhập">
+                }
+            </div>
+        </div>
+    </section>
+</body>
+</html>

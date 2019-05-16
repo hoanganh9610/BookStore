@@ -1,0 +1,144 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <link href="@Url.Content("~/Content/search.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    @if (ViewBag.TenTL == null)
+    {
+        <title>Có @ViewBag.SoLuong kết quả về sách '@ViewBag.TenSach'</title>
+    }
+    else
+    {
+        <title>Có @ViewBag.SoLuong kết quả về thể loại '@ViewBag.TenTL'</title>
+    }
+</head>
+<body>
+    <div class="container-fluid main-screen">
+        <div class="category">
+            <div id="deal-book" class="row">
+                @*<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>*@
+
+                @foreach (var item in @ViewBag.DsSach)
+                {
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <a href="~/Book/Detail?id=@item.MaSach">
+                            <div class="book-box">
+                                <img src="~/@item.HinhSach" style="height: 100%; width: 100%" />
+                            </div>
+                        </a>
+                    </div>
+                }
+                @*<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>*@
+            </div>
+        </div>
+        <div class="row paging">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            <form method="post" action="~/Home/Search">
+                @{
+                                string url = Request.Url.ToString();
+                                string t = "";
+                                if (url.Contains("tl=true"))
+                                {
+                                    t = "&tl=true";
+                                }
+
+                                if (ViewBag.SoLuong > 0)
+                                {
+                                    int num = ((int)ViewBag.SoLuong / 12);
+
+
+                                    int page = (num == 0) ? 10 : 10 / num;
+
+                                    if (ViewBag.SoLuong <= 12 * 5)
+                                    {
+                                        for (int i = 1; i < num + 1; i++)
+                                        {
+                            <a href="~/Home/Search?search=@ViewBag.TenSach&index=@(i+t)">
+                                <div class="col-xs-@page col-sm-@page col-md-@page col-lg-@page" style="font-size:2rem;">
+                                    @i
+                                </div>
+                            </a>
+                            }
+                    }
+                        else
+                        {
+                            if (ViewBag.Index == 1 || ViewBag.Index == 0 || ViewBag.Index == num)
+                            {
+                            <a href="~/Home/Search?search=@ViewBag.TenSach&index=1@(t)">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">1</div>
+                            </a>
+
+                            <a href="~/Home/Search?search=@ViewBag.TenSach&index=2@(t)">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">2</div>
+                            </a>
+
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">...</div>
+
+                            <a href="~/Home/Search?search=@ViewBag.TenSach&index=@(num - 1)@(t)">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">@(num - 1)</div>
+                            </a>
+                            <a href="~/Home/Search?search=@ViewBag.TenSach&index=@num@(t)">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">@(num)</div>
+                            </a>
+                            }
+                            else if (ViewBag.Index != num)
+                            {
+                            <a href="~/Home/Search?search=@ViewBag.TenSach&index=1@(t)">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">1</div>
+                            </a>
+                                if (ViewBag.Index + 1 == num)
+                                {<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">...</div>}
+                                if (ViewBag.Index - 1 != 1)
+                                {
+                                <a href="~/Home/Search?search=@ViewBag.TenSach&index=@(ViewBag.Index - 1)@(t)">
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">@(ViewBag.Index - 1)</div>
+                                </a>
+                                }
+
+                            <a href="~/Home/Search?search=@ViewBag.TenSach&index=@ViewBag.Index@(t)">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">@ViewBag.Index</div>
+                            </a>
+                                if (ViewBag.Index + 1 != num)
+                                {
+                                <a href="~/Home/Search?search=@ViewBag.TenSach&index=@(ViewBag.Index + 1)@(t)">
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">@(ViewBag.Index + 1)</div>
+                                </a>
+                                }
+                                if (ViewBag.Index - 1 == 1)
+                                {<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">...</div>}
+
+                            <a href="~/Home/Search?search=@ViewBag.TenSach&index=@num@(t)">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="font-size:2rem;">@num</div>
+                            </a>
+                            }
+                        }
+                    }
+                    else
+                    {
+                            <br />
+                            <p>Không có sách theo mục tìm kiếm</p>
+                        }
+                    }
+            </form>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            </div>
+    </div>
+</body>
+</html>

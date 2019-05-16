@@ -1,0 +1,102 @@
+﻿@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <script src="~/Scripts/DetailScript.js"></script>
+    <link href="@Url.Content("~/Content/detail.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="@Url.Content("~/Content/cart.css")" rel="stylesheet" type="text/css" />
+
+    <title>Manage</title>
+</head>
+<body>
+    <div class="banner">
+        <a href="https://tdmu.edu.vn">
+            <img src="~/Image/banner.png" style="width: 100%; height: 100%" />
+        </a>
+    </div>
+    <div class="container-fluid big-menu">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+            <div class="navbar-header">
+                <a href="~/Home/Home" class="navbar-brand">
+                    <img src="~/Image/logo.png" style="height: 200%; margin-left: -40px; margin-top: -10px;"
+                         title="Logo" alt="Logo" />
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <a href="~/Manage/Manage" class="navbar-brand">
+                <div style="float: left;"><i class="fas fa-boxes" style="font-size: 20px"></i></div>
+                <div style="float:right; font-size: 1.3rem; line-height: 95%; margin: -3px 0px 0px 10px;">Quản lý<br>sản phẩm</div>
+            </a>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <a href="~/ManageAcc/ManageAcc" class="navbar-brand">
+                <div style="float: left;"><i class="fas fa-boxes" style="font-size: 20px"></i></div>
+                <div style="float:right; font-size: 1.3rem; line-height: 95%; margin: -3px 0px 0px 10px;">Quản lý<br>tài khoản</div>
+            </a>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <a href="~/ManageCar/ManageCar" class="navbar-brand">
+                <div style="float: left;"><i class="fas fa-boxes" style="font-size: 20px"></i></div>
+                <div style="float:right; font-size: 1.3rem; line-height: 95%; margin: -3px 0px 0px 10px;">Quản lý<br>đơn hàngg</div>
+            </a>
+        </div>
+    </div>
+        <div>
+            @foreach (var item in ViewBag.DsCTGH)
+            {
+                <div id="cart" class="row">
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <img width="10%" height="10%" src="~/@item.HinhSach" alt="Alternate Text" />
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="row bookname">
+                                Mã Tranh: @item.MaSach &nbsp
+                            </div>
+                            <div class="row bookname">
+                                Tên Tranh:  @item.TenSach &nbsp
+                            </div>
+                            <div class="row">
+                                Số lượng: @item.SoLuongTon
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">
+                            <div class="row bookprice">
+                                Giá bán:@string.Format("{0:0,0}", @item.GiaBan) ₫
+                            </div>
+                            <div class="row bookname">
+                                Mã khuyến mãi: @item.MaKhuyenMai &nbsp
+                            </div>
+                            <div class="row bookname">
+                                Tên tác giả:  @item.TenTacGia &nbsp
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+                            <div class="row btn-midle">
+                                @using (Html.BeginForm("Cart", "Cart", FormMethod.Get))
+                                {
+                                    <a class="fas fa-times" href="~/Cart/DeleteItemCart?id=@item.MaSach"></a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+</body>
+</html>

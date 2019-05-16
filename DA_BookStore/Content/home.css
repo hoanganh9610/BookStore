@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    background-color: #dbdbdb;
+}
+
+body * {
+    font-family: Roboto;
+}
+
+/* BIG MENU BAR */
+.big-menu {
+    margin: 0;
+    padding: 0;
+}
+
+    .big-menu .navbar-default {
+        background-image: none;
+        box-shadow: none;
+    }
+
+    .big-menu .navbar {
+        border-width: 0;
+    }
+
+.navbar > .container-fluid .navbar-brand {
+    margin-left: 20px;
+    border-width: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+/*a img{
+	margin: 10px 0px;
+} use image logo */
+
+.first-line-menu {
+    margin: 0;
+    padding: 10px 10px;
+    height: 70px;
+}
+
+    .first-line-menu a {
+        margin: 0px 20px;
+        position: relative;
+    }
+
+    .first-line-menu .form-control {
+        margin: 0;
+        margin-left: 5px;
+        width: 360px;
+    }
+
+    .first-line-menu button {
+        margin-left: -20px;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+
+.second-line-menu {
+    margin: 0;
+    padding: 0px 0px;
+    height: 60px;
+}
+/* END BIG MENU */
+
+/* MAIN SCREEN */
+.main-screen {
+    margin: 15px 15px 0px 0px; /*15px 100px 0px 130px*/
+    /*background-color: green;
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;*/
+    height: auto;
+}
+
+/*MENU 2 RANGE*/
+
+#menu2 {
+    /*width: 250px;*/
+    height: 100%;
+    margin-top: 3px;
+    padding-right: 0;
+}
+
+    #menu2 * {
+        display: grid;
+        grid-column-gap: 50px;
+    }
+
+    #menu2 a {
+        /*background-color: #fff*/ /*#5e97f2*/
+        background-color: #224545;
+        color: white;
+        padding: 20px 10px 8px 20px;
+        margin-top: -3px;
+        text-align: left;
+        text-decoration: none;
+        /*border-radius: 3px;*/
+        /*border-bottom-left-radius: 3px;*/
+        height: 62.5px;
+    }
+
+        #menu2 a:hover, a:active {
+            background-color: #359164 /*#4d81d6*/;
+            color: #fff;
+        }
+
+#big-item-show {
+    background-color: #ffd;
+    height: 300px;
+}
+
+#small-item-show {
+    background-color: #ffa;
+    padding: 0px;
+    height: 300px;
+}
+
+#smaller-item-show {
+    background-color: #faf;
+    height: 300px;
+}
+
+.first-item-show {
+    background-color: #fbf;
+    height: 150px;
+}
+
+.second-item-show {
+    background-color: #fcf;
+    height: 150px;
+}
+
+/* category */
+.category .row {
+    background-color: #fff;
+    height: 200px;
+    margin: 20px 0px
+}
+
+.category .book-box{
+	width: 150px;
+	height: 180px;
+	background-color: #fff;
+	margin: 10px;
+}
+

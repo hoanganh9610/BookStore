@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <link href="@Url.Content("~/Content/account.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Thông tin tài khoản</title>
+</head>
+
+<body>
+    <div class="main-screen">
+        <section id="home-section">
+            <div class="RegBox">
+                <h2 id="reg">Account Member</h2>
+                <form action="~/Account/Account" method="post">
+                    <p>UserName</p>
+                    <input type="text" name="id" id="id" readonly value="@ViewBag.TK.TenTaiKhoan">
+                    <p>Mật khẩu</p>
+                    <input type="password" name="pass" id="pass" placeholder="•••••••••••">
+                    <p>Nhập lại mật khẩu</p>
+                    <input type="password" id="rePass" name="rePass" placeholder="•••••••••••">
+                    @if(ViewBag.error != null)
+                    {
+                        <p>@ViewBag.error</p>
+                    }
+                    <p>Họ và tên</p>
+                    <input type="text" name="name" id="name" value="@ViewBag.TK.HoTen">
+                    <p>Email</p>
+                    <input type="text" name="email" id="email" value="@ViewBag.TK.Email">
+                    <p>Số điện thoại</p>
+                    <input type="text" name="sdt" id="sdt" value="@ViewBag.TK.Sdt">
+                    <p>Địa chỉ</p>
+                    <input type="text" name="diaChi" id="diaChi" value="@ViewBag.TK.DiaChi">
+                    <div>
+                        <p style="display:inline-block">Giới tính</p>
+                        <select id="sex" name="sex">
+                            @if (ViewBag.TK.GioiTinh)
+                            {
+                                <option value="Nam" selected>Nam</option>
+                                <option value="Nữ">Nữ</option>
+                            }
+                            else
+                            {
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ" selected>Nữ</option>
+                            }
+                        </select>
+                    </div>
+                    <div>
+                        @if (Session["userPrio"] != null && Session["userPrio"].ToString() == "Admin" && ViewBag.editMode == 1)
+                        {
+                            <div>
+                                <p style="display:inline-block">Quyền</p>
+                                <select id="prio" name="prio">
+                                    @if (ViewBag.tkPrio == null)
+                                    {
+                                        <option value="" selected>Khách hàng</option>
+                                        <option value="Mananger">Quản lý</option>
+                                        <option value="Admin">Admin</option>
+                                    }
+                                    else if (ViewBag.tkPrio == "NhanVien")
+                                    {
+                                        <option value="">Khách hàng</option>
+                                        <option value="Mananger" selected>Quản lý</option>
+                                        <option value="Admin">Admin</option>
+                                    }
+                                    else if (ViewBag.tkPrio == "Admin")
+                                    {
+                                        <option value="">Khách hàng</option>
+                                        <option value="Mananger">Quản lý</option>
+                                        <option value="Admin" selected>Admin</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+                        @if (Session["userPrio"] != null && Session["userPrio"].ToString() == "Admin" && ViewBag.editMode == 1)
+                        {
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input id="submit" type="submit" name="" value="Cập nhật" />
+                                </div>
+                                <div class="col-md-6" style="margin-top: 12px;">
+                                    <a class="btnXoa" href="@Url.Action("DeleteAccount","Account", new {id= ViewBag.TK.TenTaiKhoan })">Xoá</a>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <input id="submit" type="submit" name="" value="Cập nhật">
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        }
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

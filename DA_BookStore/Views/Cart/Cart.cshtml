@@ -1,0 +1,72 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <script src="~/Scripts/DetailScript.js"></script>
+    <link href="@Url.Content("~/Content/detail.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="@Url.Content("~/Content/cart.css")" rel="stylesheet" type="text/css" />
+
+    <title>Cart</title>
+</head>
+<body>
+    <h3>GIỎ HÀNG</h3>
+    @foreach (var item in ViewBag.DsCTGH)
+    {
+        <div id="cart" class="row">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <img width="10%" height="10%" src="~/@item.HinhSach" alt="Alternate Text" />
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="row bookname">
+                        @item.TenSach &nbsp
+                    </div>
+                    <div class="row">
+                        Số lượng: @item.SoLuongTon
+                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">
+                    <div class="row bookprice">
+                        @string.Format("{0:0,0}", @item.GiaBan) ₫
+                    </div>
+                    <div class="row">
+                        @string.Format("{0:0,0}", @item.TietKiem)
+                    </div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+                    <div class="row btn-midle">
+                        @using (Html.BeginForm("Cart", "Cart", FormMethod.Get))
+                        {
+                            <a class="fas fa-times" href="~/Cart/DeleteItemCart?id=@item.MaSach"></a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    @using (Html.BeginForm("Payment", "Payment", FormMethod.Get))
+    {
+        <div class="btn-midle">
+            <button id="btn-mua" type="submit" class="btn btn-success btn-cash"><i class="fas fa-cash-register"></i>Thanh toán</button>
+        </div>
+    }
+
+</body>
+</html>

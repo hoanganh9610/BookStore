@@ -1,0 +1,99 @@
+
+#home-section {
+
+}
+.home-overlay {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    min-height:1080px;
+    background: rgba(0,0,0,0.7);
+    opacity : 0.9;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-family: sans-serif;
+    
+}
+
+.RegBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 750px;
+    padding: 20px 50px 20px 50px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: rgb(233, 227, 227);
+}
+
+
+#submit{
+    padding: 20px;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+}
+
+#reg {
+    margin: 0;
+    padding: 30px 0 30px 20px;
+    color: #33ca93;
+    text-align: center;
+}
+
+.RegBox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color:0,0,0;
+}
+
+.RegBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}   
+
+.RegBox input[type="text"],
+.RegBox input[type="password"] {
+    border: none;
+    border-bottom: 1px solid rgb(160, 141, 141);
+    background: transparent;
+    outline: none;
+    height: 35px;
+    color:#33ca93;
+    font-size: 16px;
+}
+
+::placeholder {
+    color: #33ca93;
+}
+
+.RegBox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 150px;
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+    margin-left: 100px;
+    font-size: 20px;
+    background: #33ca93;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.RegBox input[type="submit"]:hover {
+    background: #F4F464;
+    color: #262626;
+}
+.RegBox select{
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 30px;
+    color: #33ca93;
+}

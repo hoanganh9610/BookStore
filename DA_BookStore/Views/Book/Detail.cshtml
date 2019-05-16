@@ -1,0 +1,141 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <script src="~/Scripts/DetailScript.js"></script>
+    <link href="@Url.Content("~/Content/detail.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <title>@ViewBag.Sach.TenSach</title>
+</head>
+<body>
+    @if (Session["bookEdit"] == null)
+    {
+    <div class="main-screen">
+        <div class="row">
+            <div class="hover14 column col-xs-6 col-sm-6 col-md-6 col-lg-6 left-box">
+                <br> 
+                <figure >
+                    <img src="~/@ViewBag.Sach.HinhSach" class="img-responsive" alt="Image">
+                </figure>
+                <br />
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 left-box">
+                <div class="book-title">
+                    <h1>@ViewBag.Sach.TenSach</h1>
+                    <h3>Tác giả: @ViewBag.Sach.TenTacGia &nbsp SKU: @ViewBag.Sach.SKU</h3>
+                </div>
+                <hr>
+
+                <div class="book-price">
+                    @if (ViewBag.KhuyenMai != null)
+                    {
+                        <h3>@string.Format("{0:0,0}", @ViewBag.GiaBanHienTai) ₫ </h3>
+                        <p>Tiết kiệm: @ViewBag.KhuyenMai.PhanTramKhuyenMai% (@string.Format("{0:0,0}", @ViewBag.TietKiem)) ₫</p>
+                        <p>Giá thị trường: @string.Format("{0:0,0}", @ViewBag.Sach.GiaBan) ₫</p>
+                    }
+                    else
+                    {
+                        <h3>@string.Format("{0:0,0}", @ViewBag.Sach.GiaBan) ₫ </h3>
+                    }
+                </div>
+                @using (Html.BeginForm("GetToCart", "Cart", FormMethod.Post))
+                {
+                    <div class="row book-oder  ">
+                        <div class="btn-group up_down  col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <button onclick="down('0')" type="button" class="btn-group btn btn-default">-</button>
+                            <input id="soLuong" name="soLuong" class="btn-group" type="number" value="1" pattern="[0-9]{10}">
+                            <button onclick="up('100')" type="button" class="btn-group btn btn-default">+</button>
+                        </div>
+
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <button id="btn-mua" type="submit" class="btn btn-danger">Chọn mua</button>
+
+                            @if (Session["userPrio"] != null && Session["userPrio"].ToString() == "Admin")
+                            {
+                                <a class="btnXoa" href="@Url.Action("BookEdit", "Book", new { id = ViewBag.Sach.MaSach })">
+                                    <button id="btn-mua" type="button" class="btn btn-danger" style="margin-left: 10px; width:70px;">Sửa</button>
+                                </a>
+                                <a class="btnXoa" href="@Url.Action("BookDelete", "Book", new { id = ViewBag.Sach.MaSach })">
+                                    <button id="btn-xoa" type="button" class="btn btn-danger" style="margin-left: 10px; width:70px;">Xoá</button>
+                                </a>
+                            }
+                        </div>
+                        
+                    </div>
+                }
+                    <hr>
+                    <div class="book-introduce">
+                        <h1>GIỚI THIỆU TRANH</h1>
+                        <p style="text-align:justify">
+                            @ViewBag.Sach.GioiThieuSach
+                        </p>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    }
+    else if (Session["bookEdit"].ToString() == "sua")
+    {
+    <div class="main-screen-2">
+        <div class="row">
+            <div class="hover14 column col-xs-6 col-sm-6 col-md-6 col-lg-6 left-box">
+                <br>
+                <figure>
+                    <img src="~/@ViewBag.Sach.HinhSach" class="img-responsive" alt="Image">
+                </figure>
+                <br />
+            </div>
+            <form action="~/Book/Detail" method="post" enctype="multipart/form-data">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 left-box">
+                    <div class="book-title">
+                        <h3>Tên sách</h3>
+                        <input id="tenSach" name="tenSach" type="text" value="@ViewBag.Sach.TenSach" style="width:100%;" />
+                        <h3>Tác giả</h3>
+                        <input id="tacGia" name="tacGia" type="text" value="@ViewBag.Sach.TenTacGia" style="width:100%;" />
+                        <h3>SKU</h3>
+                        <input id="sku" name="sku" type="text" value="@ViewBag.Sach.SKU" style="width:100%;" />
+                    </div>
+                    <hr>
+                    <div class="book-price">
+                        <h3>Giá bán</h3>
+                        <input id="giaBan" name="giaBan" type="number" value="@ViewBag.Sach.GiaBan" min="1000" style="width:100%;" />
+                    </div>
+
+                    <hr>
+                    <div class="book-introduce">
+                        <h3>Giới thiệu sách</h3>
+                        <textarea id="gioiThieuSach" name="gioiThieuSach" style="width:100%; min-height:170px !important;">@ViewBag.Sach.GioiThieuSach</textarea>
+                    </div>
+                    <div class="btn">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="file" name="hinh" id="hinh" />
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-danger" style="margin-left: 10px; width:70px;">Lưu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    }
+</body>
+</html>

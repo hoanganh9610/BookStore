@@ -1,0 +1,138 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <link href="@Url.Content("~/Content/cart.css")" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                <h3>ĐỊA CHỈ GIAO HÀNG</h3>
+                <div id="ship-info" class="row">
+                    <div x`class="row">
+                        <div class="label col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            Họ tên khách hàng<span>*</span>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input type="text" name="name" />
+                            <span>* không được để trống</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            Địa chỉ giao hàng<span>*</span>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input type="text" name="address" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            Số điện thoại<span>*</span>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input type="text" name="phonenumber" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            Email<span>*</span>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input type="text" name="email" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label col-xs-4 col-sm-4 col-md-4 col-lg-4" style="font-weight: 100;">
+                            Ghi chú thêm
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <input type="text" name="note" style="height:100px;" />
+                        </div>
+                    </div>
+                </div>
+
+                <h3>GIỎ HÀNG</h3>
+                <div id="cart" class="row">
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <img src="#" />
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="row bookname">
+                                "Tên tác phẩm"
+                            </div>
+                            <div class="row">
+                                Tác giả:
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">
+                            <div class="row bookprice">
+                                "Giá"
+                            </div>
+                            <div class="row">
+                                "discount"
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <div class="row">
+                                spin-box cái này t k biết làm
+                            </div>
+                            <div class="row btn-midle">
+                                <button type="button" class="btn btn-danger"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="bill" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <h3>HÓA ĐƠN</h3>
+                <div class="detail">
+                    <div class="row sub-total">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            Tạm tính
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align: right;">
+                            #####
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            Thành tiền
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="text-align: right;">
+                            <div class="row" style="color: red;">
+                                #####
+                            </div>
+                            <div class="row" style="font-size: 60%; line-height: 20px;">
+                                Đã bao gồm thuế VAT
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="btn-midle">
+                    <button type="button" class="btn btn-success btn-cash"><i class="fas fa-cash-register"></i>Thanh toán</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
